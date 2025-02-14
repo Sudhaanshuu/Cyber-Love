@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes matrix {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0.75rem #ff69b4);
+  }
+  50% {
+    filter: drop-shadow(0 0 1.5rem #ff1493);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.matrix-text {
+  position: absolute;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  animation: matrix 20s linear infinite;
+}
+
+.cyber-input {
+  @apply bg-black/20 border-2 border-pink-500 text-white px-4 py-2 rounded-lg 
+  focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400
+  transition-all duration-300 backdrop-blur-sm;
+}
+
+select.cyber-input {
+  @apply appearance-none bg-black/40;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ec4899'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+select.cyber-input option {
+  @apply bg-gray-900 text-white;
+}
+
+.valentine {
+  background: linear-gradient(135deg, #2c0318 0%, #1a0110 100%);
+}
+
+.starlight {
+  background: linear-gradient(135deg, #1a1b4b 0%, #090979 100%);
+}
+
+.neon {
+  background: linear-gradient(135deg, #2d0036 0%, #100012 100%);
+}
+
+.cyber-button {
+  @apply px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600
+  text-white font-bold rounded-lg transform hover:scale-105
+  transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/50
+  active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+  relative overflow-hidden;
+}
+
+.cyber-button::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
+  transition: transform 0.6s;
+}
+
+.cyber-button:hover::before {
+  transform: translateX(100%);
+}
+
+.nav-link {
+  @apply text-white hover:text-pink-400 transition-colors duration-300 relative
+  py-1 px-2 rounded-lg hover:bg-pink-500/10;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.memory-card {
+  @apply aspect-square bg-pink-500/10 rounded-lg p-4 transition-all duration-300
+  hover:bg-pink-500/20 hover:scale-105 cursor-pointer;
+}
+
+.holographic-sphere {
+  @apply relative w-48 h-48 rounded-full bg-gradient-to-br from-pink-500/20 to-purple-600/20
+  border-2 border-pink-500/50 backdrop-blur-sm;
+  animation: glow 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-sphere::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.love-quote {
+  @apply text-pink-300 italic text-sm;
+}
+
+.compatibility-chart {
+  @apply grid grid-cols-2 gap-4 p-4 bg-black/30 rounded-lg border border-pink-500/30 backdrop-blur-sm;
+}
+
+.compatibility-item {
+  @apply flex items-center gap-2 text-sm;
+}
+
+.love-tip {
+  @apply bg-pink-500/10 p-4 rounded-lg border border-pink-500/30 backdrop-blur-sm;
+}
+
+.footer-link {
+  @apply hover:text-pink-400 transition-colors duration-300;
+}
