@@ -3,7 +3,6 @@ import { Heart, HomeIcon, Info, BookHeart, Camera, Menu, X } from 'lucide-react'
 
 const Navbar = ({ setActiveSection, activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="bg-black/50 backdrop-blur-sm border-b border-pink-500/30 p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -13,7 +12,6 @@ const Navbar = ({ setActiveSection, activeSection }) => {
             CyberLove
           </span>
         </div>
-
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-pink-400"
@@ -21,16 +19,14 @@ const Navbar = ({ setActiveSection, activeSection }) => {
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
-          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="calculator" icon={HomeIcon} label="Calculator" isMobile={undefined} />
-          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="about" icon={Info} label="About" isMobile={undefined} />
-          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="stories" icon={BookHeart} label="Stories" isMobile={undefined} />
-          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="memory-book" icon={Camera} label="Book" isMobile={undefined} />
+          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="calculator" icon={HomeIcon} label="Calculator" />
+          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="about" icon={Info} label="About" />
+          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="stories" icon={BookHeart} label="Stories" />
+          <NavItem setActiveSection={setActiveSection} activeSection={activeSection} section="memory-book" icon={Camera} label="Book" />
         </div>
       </div>
-
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden mt-4 bg-black/80 backdrop-blur-md p-4 rounded-lg">
@@ -47,7 +43,7 @@ const Navbar = ({ setActiveSection, activeSection }) => {
 const NavItem = ({ setActiveSection, activeSection, section, icon: Icon, label, isMobile }) => (
   <button
     onClick={() => setActiveSection(section)}
-    className={`flex items-center gap-2 p-2 w-full ${activeSection === section ? 'text-pink-400' : 'text-white'}`}
+    className={`flex items-center gap-2 p-2 w-full transition-colors duration-300 hover:text-pink-400 ${activeSection === section ? 'text-pink-400' : 'text-white'}`}
   >
     <Icon size={isMobile ? 20 : 16} />
     {label}

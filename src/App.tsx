@@ -1,5 +1,6 @@
 import { useState, useEffect, Key } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from './Navbar';
 import { 
   Heart, 
   Share2, 
@@ -509,7 +510,7 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-gray-900 text-white relative overflow-hidden flex flex-col ${selectedTheme}`}>
-      <nav className="bg-black/50 backdrop-blur-sm border-b border-pink-500/30 p-4">
+      {/* <nav className="bg-black/50 backdrop-blur-sm border-b border-pink-500/30 p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Heart className="text-pink-500" />
@@ -537,18 +538,20 @@ function App() {
               className={`nav-link flex items-center gap-1 ${activeSection === 'stories' ? 'text-pink-400' : ''}`}
             >
               <BookHeart size={16} />
-              Love Stories
+              Stories
             </button>
             <button 
               onClick={() => setActiveSection('memory-book')}
               className={`nav-link flex items-center gap-1 ${activeSection === 'memory-book' ? 'text-pink-400' : ''}`}
             >
               <Camera size={16} />
-              Memory Book
+              Memory
             </button>
           </div>
         </div>
-      </nav>
+      </nav> */}
+
+<Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
 
       <main className="flex-grow container mx-auto px-4 py-12">
         {renderSection()}
