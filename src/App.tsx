@@ -1,5 +1,6 @@
 import { useState, useEffect, Key } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from './Navbar';
 import { 
   Heart, 
   Share2, 
@@ -509,46 +510,7 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-gray-900 text-white relative overflow-hidden flex flex-col ${selectedTheme}`}>
-      <nav className="bg-black/50 backdrop-blur-sm border-b border-pink-500/30 p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Heart className="text-pink-500" />
-            <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-              CyberLove
-            </span>
-          </div>
-          <div className="flex gap-6">
-            <button 
-              onClick={() => setActiveSection('calculator')}
-              className={`nav-link flex items-center gap-1 ${activeSection === 'calculator' ? 'text-pink-400' : ''}`}
-            >
-              <HomeIcon size={16} />
-              Calculator
-            </button>
-            <button 
-              onClick={() => setActiveSection('about')}
-              className={`nav-link flex items-center gap-1 ${activeSection === 'about' ? 'text-pink-400' : ''}`}
-            >
-              <Info size={16} />
-              About
-            </button>
-            <button 
-              onClick={() => setActiveSection('stories')}
-              className={`nav-link flex items-center gap-1 ${activeSection === 'stories' ? 'text-pink-400' : ''}`}
-            >
-              <BookHeart size={16} />
-              Love Stories
-            </button>
-            <button 
-              onClick={() => setActiveSection('memory-book')}
-              className={`nav-link flex items-center gap-1 ${activeSection === 'memory-book' ? 'text-pink-400' : ''}`}
-            >
-              <Camera size={16} />
-              Memory Book
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
 
       <main className="flex-grow container mx-auto px-4 py-12">
         {renderSection()}
